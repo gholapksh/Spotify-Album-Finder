@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 a {
   font-weight: 500;
@@ -66,3 +67,309 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+*/
+/* === Spotify-Inspired Theme === */
+:root {
+  --spotify-green: #1db954;
+  --spotify-green-hover: #1ed760;
+  --bg-dark: #121212;
+  --card-dark: #181818;
+  --text-light: #ffffff;
+  --text-muted: #b3b3b3;
+  --radius: 12px;
+  --transition: 0.3s ease-in-out;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* === Base Styles === */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* === Links === */
+a {
+  color: var(--spotify-green);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition), text-shadow var(--transition);
+}
+
+a:hover {
+  color: var(--spotify-green-hover);
+  text-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
+}
+
+/* === Headings === */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* === Buttons === */
+button {
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--spotify-green);
+  color: #000;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+button:hover {
+  background: var(--spotify-green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(30, 215, 96, 0.4);
+}
+
+button:focus {
+  outline: 2px solid var(--spotify-green);
+  outline-offset: 3px;
+}
+
+/* === Cards (for your albums!) === */
+.card {
+  background: var(--card-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(30, 215, 96, 0.2);
+}
+
+.card img {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card-body {
+  color: var(--text-light);
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* === Light Mode === */
+@media (prefers-color-scheme: light) {
+  body {
+    background: #f5f5f5;
+    color: #121212;
+  }
+
+  .card {
+    background: white;
+  }
+  /* === Album Grid Layout === */
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* === Individual Album Card === */
+  .album-card {
+    background: var(--card-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .album-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(30, 215, 96, 0.3);
+  }
+
+  .album-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .album-info {
+      padding: 0.8rem;
+  }
+
+  .album-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    color: var(--text-light);
+  }
+
+  .album-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .album-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--spotify-green);
+    font-weight: 500;
+    transition: color var(--transition);
+  } 
+
+  .album-link:hover {
+    color: var(--spotify-green-hover);
+    text-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
+  }
+  h1{
+    text-align: center;
+    color: var(--spotify-green);
+    transition: color var(--transition);
+    font-size: 50px;
+  }
+  .app-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  color: var(--text-light);
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--spotify-green);
+  text-shadow: 0 0 15px rgba(29, 185, 84, 0.4);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.app-header p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* === Search Section === */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-container input {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0 1rem;
+  background-color: var(--card-dark);
+  color: var(--text-light);
+  font-size: 1rem;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  transition: box-shadow var(--transition), background-color var(--transition);
+}
+
+.search-container input:focus {
+  outline: 2px solid var(--spotify-green);
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.4);
+}
+
+/* === Album Grid (dark mode consistency) === */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album-card {
+  background: var(--card-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+}
+
+.album-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(30, 215, 96, 0.3);
+}
+
+.album-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.album-info {
+  padding: 0.8rem;
+}
+
+.album-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  color: var(--text-light);
+}
+
+.album-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.album-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--spotify-green);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.album-link:hover {
+  color: var(--spotify-green-hover);
+  text-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
+}
+}
+
